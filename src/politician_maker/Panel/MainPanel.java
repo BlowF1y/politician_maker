@@ -23,7 +23,7 @@ public class MainPanel extends JPanel {
 
         ImageIcon mainimg = new ImageIcon("IMG/main_img.jpg");
         JLabel imglabel = new JLabel(mainimg);
-        imglabel.setBounds(120,150,250,250);
+        imglabel.setBounds(100,120,300,300);
         add(imglabel);
 
         JButton Start_btn = new JButton("시작하기");

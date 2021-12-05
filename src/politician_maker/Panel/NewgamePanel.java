@@ -14,7 +14,8 @@ public class NewgamePanel extends JPanel {
 
     public int chr_num;
     public int poli_party_num;
-    static JTextField nameInsert;
+    public ButtonGroup chrSE_BG,PP_BG;
+    public JTextField nameInsert;
 
     public NewgamePanel(){
         set_view();
@@ -64,7 +65,7 @@ public class NewgamePanel extends JPanel {
         chrSelectIMG3.setBounds(350,50,100,200);
         add(chrSelectIMG3);
 
-        ButtonGroup chrSE_BG = new ButtonGroup();
+        chrSE_BG = new ButtonGroup();
         JRadioButton chrSE_1 = new JRadioButton();
         chrSE_BG.add(chrSE_1);
         chrSE_1.setBounds(90,270,20,20);
@@ -96,7 +97,7 @@ public class NewgamePanel extends JPanel {
         political_party.setFont(mainlabel.getFont().deriveFont(20.0f));
         add(political_party);
 
-        ButtonGroup PP_BG = new ButtonGroup();
+        PP_BG = new ButtonGroup();
         JRadioButton PP_minju = new JRadioButton("더불어민주당");
         PP_minju.setBounds(50,430,110,20);
 
@@ -137,8 +138,10 @@ public class NewgamePanel extends JPanel {
                 }else if(PP_hyekmyung.isSelected()){
                     poli_party_num = 3;
                 }
+                System.out.println(nameInsert.getText());
+                System.out.println(u_name);
                 DC.addDB(u_name,chr_num,poli_party_num);
-                Main.movePage(5);
+
 
             }
         });
