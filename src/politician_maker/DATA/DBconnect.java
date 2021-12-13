@@ -61,7 +61,6 @@ public class DBconnect {
             System.out.println("DB 연결 오류");
         }
     }
-
     public void updateDB(String name, int count){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -149,8 +148,6 @@ public class DBconnect {
             System.out.println("DB 연결 오류");
         }
     }
-
-
     public int Get_PP(){
         return this.PP;
     }
@@ -161,6 +158,4 @@ public class DBconnect {
     public ArrayList Get_list(){
         return this.listGroup;
     }
-
-
 }

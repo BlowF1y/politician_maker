@@ -14,7 +14,7 @@ public class GamePanel extends JPanel {
     public String PP;
     public int charNUM,potician_party;
     public JLabel namefield,Approval_rating,Political_party;
-    public JPanel LGM_IMG,LGS_IMG,HGY_IMG;
+    public JPanel LGM_IMG,LGS_IMG,HGY_IMG,HGY_IMG_2,LGM_IMG_2,LGS_IMG_2;
     public JButton Approval_rating_BTN;
 
     public GamePanel(){
@@ -29,7 +29,7 @@ public class GamePanel extends JPanel {
         NewgamePanel np = new NewgamePanel();
         DBconnect DC = new DBconnect();
         count = 0;
-        president = 1000;
+        president = 100;
         PP = null;
 
 
@@ -94,6 +94,49 @@ public class GamePanel extends JPanel {
         HGY_IMG.setVisible(false);
         add(HGY_IMG);
 
+                // 이재명 판넬
+                LGM_IMG_2 = new JPanel();
+                LGM_IMG_2.setSize(250,250);
+                ImageIcon LGMIMG_2 = new ImageIcon("IMG/LGM_ingame_2.png");
+                Image I1_1 = LGMIMG_2.getImage().getScaledInstance(250,250,LGMIMG_2.getImage().SCALE_SMOOTH);
+                ImageIcon lgm1 = new ImageIcon(I1_1);
+                JLabel lgm_label_2 = new JLabel(lgm1);
+
+                imglabel.setBounds(0,0,250,250);
+                LGM_IMG_2.add(lgm_label_2);
+                LGM_IMG_2.setBounds(120,100,250,250);
+                LGM_IMG_2.setVisible(false);
+                add(LGM_IMG_2);
+
+                //이준석 판넬
+                LGS_IMG_2 = new JPanel();
+                LGM_IMG_2.setSize(250,250);
+                ImageIcon LGSimg_2 = new ImageIcon("IMG/LGS_ingame_2.jpg");
+                Image I2_2 = LGSimg_2.getImage().getScaledInstance(250,250,LGSimg_2.getImage().SCALE_SMOOTH);
+                ImageIcon IEE1_2 = new ImageIcon(I2_2);
+                JLabel lgs_label_2 = new JLabel(IEE1_2);
+
+                imglabel.setBounds(0,0,250,250);
+                LGS_IMG_2.add(lgs_label_2);
+                LGS_IMG_2.setBounds(120,100,250,250);
+                LGS_IMG_2.setVisible(false);
+                add(LGS_IMG_2);
+
+
+                //허경영 판넬
+                HGY_IMG_2 = new JPanel();
+                LGM_IMG_2.setSize(250,250);
+                ImageIcon HGYimg_2 = new ImageIcon("IMG/HGY_ingame_2.jpg");
+                Image I3_3 = HGYimg_2.getImage().getScaledInstance(250,250,HGYimg_2.getImage().SCALE_SMOOTH);
+                ImageIcon IEE3_3 = new ImageIcon(I3_3);
+                JLabel hgy_label_2 = new JLabel(IEE3_3);
+
+                imglabel.setBounds(0,0,250,250);
+                HGY_IMG_2.add(hgy_label_2);
+                HGY_IMG_2.setBounds(120,100,250,250);
+                HGY_IMG_2.setVisible(false);
+                add(HGY_IMG_2);
+
 
 
         namefield = new JLabel();
@@ -129,13 +172,24 @@ public class GamePanel extends JPanel {
                         }else if(charNUM == 3){
                             HGY_IMG.setVisible(true);
                         }
-
                     Approval_rating_BTN.setText("지지율 올리기");
                     Approval_rating.setText("지지율 : "+String.valueOf(count)+"/"+String.valueOf(Math.round((double)count / (double)president * 100)/1.0+"%"));
                     namefield.setText("이름 :"+np.u_name);
-                }else if (count >= 1){
+                }else if (count >= 1 && count < president){
                            count += 1;
+                           if( 70 <= Math.round((double)count / (double)president * 100)/1.0 && charNUM == 1 ){
+                            LGM_IMG.setVisible(false);
+                            LGS_IMG_2.setVisible(true);
+                           }else if( 70 <= Math.round((double)count / (double)president * 100)/1.0 && charNUM == 2){
+                            LGS_IMG.setVisible(false);
+                            LGS_IMG_2.setVisible(true);
+                           }else if( 70 <= Math.round((double)count / (double)president * 100)/1.0 && charNUM == 3){
+                            HGY_IMG.setVisible(false);
+                            HGY_IMG_2.setVisible(true);
+                        }
                     Approval_rating.setText("지지율 : "+String.valueOf(count)+"/"+String.valueOf(Math.round((double)count / (double)president * 100)/1.0+"%"));
+                }else if (count >= president){
+                    JOptionPane.showMessageDialog(Main.f,"대통령 당선!");
                 }
             }
         });
