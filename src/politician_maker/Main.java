@@ -79,6 +79,9 @@ public class Main {
                     gamePanel.namefield.setText("");
                     gamePanel.Approval_rating.setText("");
                     gamePanel.Political_party.setText("");
+                    gamePanel.HGY_IMG_2.setVisible(false);
+                    gamePanel.LGM_IMG_2.setVisible(false);
+                    gamePanel.LGS_IMG_2.setVisible(false);
                     gamePanel.HGY_IMG.setVisible(false);
                     gamePanel.LGM_IMG.setVisible(false);
                     gamePanel.LGS_IMG.setVisible(false);

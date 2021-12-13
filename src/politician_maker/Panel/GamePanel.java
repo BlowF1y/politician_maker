@@ -97,7 +97,7 @@ public class GamePanel extends JPanel {
                 // 이재명 판넬
                 LGM_IMG_2 = new JPanel();
                 LGM_IMG_2.setSize(250,250);
-                ImageIcon LGMIMG_2 = new ImageIcon("IMG/LGM_ingame_2.png");
+                ImageIcon LGMIMG_2 = new ImageIcon("IMG/LGM_ingame_2.jpg");
                 Image I1_1 = LGMIMG_2.getImage().getScaledInstance(250,250,LGMIMG_2.getImage().SCALE_SMOOTH);
                 ImageIcon lgm1 = new ImageIcon(I1_1);
                 JLabel lgm_label_2 = new JLabel(lgm1);
@@ -152,8 +152,9 @@ public class GamePanel extends JPanel {
         Approval_rating_BTN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DC.connectDB(np.u_name);
+
                 if (count == 0){
+                    DC.connectDB(np.u_name);
                     count += DC.Get_rating();
                     charNUM = DC.Get_chr();
                     potician_party = DC.Get_PP();
@@ -179,7 +180,7 @@ public class GamePanel extends JPanel {
                            count += 1;
                            if( 70 <= Math.round((double)count / (double)president * 100)/1.0 && charNUM == 1 ){
                             LGM_IMG.setVisible(false);
-                            LGS_IMG_2.setVisible(true);
+                            LGM_IMG_2.setVisible(true);
                            }else if( 70 <= Math.round((double)count / (double)president * 100)/1.0 && charNUM == 2){
                             LGS_IMG.setVisible(false);
                             LGS_IMG_2.setVisible(true);
